@@ -17,8 +17,8 @@ install-udev-rule:
 .PHONY: clean install-udev-rule
 
 install: $(PKG)
-	install $(PKG) $(DESTDIR)$(bindir)
-	install -m 0664 99-ch341a-prog.rules $(DESTDIR)/etc/udev/rules.d/99-ch341a-prog.rules
+	install -D $(PKG) $(DESTDIR)$(bindir)
+	install -D -m 0664 99-ch341a-prog.rules $(DESTDIR)/etc/udev/rules.d/99-ch341a-prog.rules
 
 debian/changelog:
 	#gbp dch --debian-tag='%(version)s' -S -a --ignore-branch -N '$(VERSION)'
